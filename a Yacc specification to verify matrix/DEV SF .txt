@@ -1,29 +1,29 @@
 
 Donnez l’arbre syntaxique de [1 34,3 6]
 
-						S
+				        S
 				   /    |       \
-				 [		Lignes    ]
-						|      \
-						Ligne    Lignes
-						|             |
-						cst           Ligne
-						|               |
-						1               Lignes
-									  /     \
-								   Ligne   Lignes
-								   |         |
-								   cst      Ligne
-								   |         |
-								   34        Lignes
-											/     \
-										 Ligne   Lignes
-										 |         |
-										 cst      Ligne
-										 |         |
-										 3        cst
-												   |
-												   6
+				 [	Lignes    ]
+					|      \
+					Ligne    Lignes
+				         |          |
+					 cst         Ligne
+					 |              |
+					 1               Lignes
+							  /     \
+						           Ligne   Lignes
+							     |         |
+							    cst      Ligne
+							      |         |
+							      34        Lignes
+									/     \
+								       Ligne   Lignes
+									|         |
+								       cst      Ligne
+									|         |
+									3        cst
+										   |
+										    6
 
 Donnez la table LALR.
 
