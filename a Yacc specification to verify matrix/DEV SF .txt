@@ -1,0 +1,144 @@
+
+Donnez l’arbre syntaxique de [1 34,3 6]
+
+						S
+				   /    |       \
+				 [		Lignes    ]
+						|      \
+						Ligne    Lignes
+						|             |
+						cst           Ligne
+						|               |
+						1               Lignes
+									  /     \
+								   Ligne   Lignes
+								   |         |
+								   cst      Ligne
+								   |         |
+								   34        Lignes
+											/     \
+										 Ligne   Lignes
+										 |         |
+										 cst      Ligne
+										 |         |
+										 3        cst
+												   |
+												   6
+
+Donnez la table LALR.
+
+**Grammaire** :
+
+S → [Lignes ]
+Lignes → Ligne ',' Lignes | Ligne
+Ligne → cst | cst Ligne
+
+
+**Augmentation de la grammaire**
+
+S' → S
+S → [Lignes ]
+Lignes → Ligne ',' Lignes | Ligne
+Ligne → cst | cst Ligne
+
+
+**Les premiers & Suivants** 
+
+Les Premiers(S') = Les Premiers(S) = {'['}
+Les Premiers(S) = {'['}
+Les Premiers(Lignes) = Les Premiers(Ligne) = Les Premiers(cst) = {cst}
+
+Suivants(S') = Suivants(S) = {$}
+Suivants(S) = {']', $}
+Suivants(Lignes) = {']', ','}
+Suivants(Ligne) = Suivants(Lignes) = {']', ','}
+Suivants(cst) = {',', ']'}
+
+
+**LALR**
+
+
+[S' → .S, $]
+[S → .[Lignes ], $]
+[Lignes → .Ligne ',' Lignes, $]
+[Ligne → .cst, $]
+[Ligne → .cst Ligne, $]
+
+State 0:
+
+[S' -> . S]
+[S -> . [ Lignes ]]
+[Lignes -> . Ligne ',' Lignes]
+[Lignes -> . Ligne]
+[Ligne -> . cst]
+[Ligne -> . cst Ligne]
+
+State 1:
+
+[S -> [ . Lignes ]]
+
+State 2:
+
+[S -> [ Lignes . ]]
+
+State 3:
+
+[Lignes -> Ligne . ',' Lignes]
+[Ligne -> . cst]
+[Ligne -> . cst Ligne]
+
+State 4:
+
+[Lignes -> Ligne ',' . Lignes]
+[Ligne -> . cst]
+[Ligne -> . cst Ligne]
+
+State 5:
+
+[Lignes -> Ligne ',' Lignes .]
+
+State 6:
+
+[Ligne -> . cst]
+[Ligne -> . cst Ligne]
+
+State 7:
+
+[Ligne -> cst .]
+
+State 8:
+
+[Ligne -> cst . Ligne]
+
+State 9:
+
+[Ligne -> cst .]
+[Ligne -> . cst]
+[Ligne -> . cst Ligne]
+
+State 10:
+
+[Lignes -> Ligne ',' Lignes .]
+
+State 11:
+
+[Ligne -> cst . Ligne]
+
+State 12:
+
+[Ligne -> . cst]
+[Ligne -> . cst Ligne]
+
+
+**Proposez une grammaire abstraite**
+
+S → [ csts ]
+csts → cst ',' csts | cst
+
+(csts représente une séquence de constantes.
+cst représente une constante)
+
+
+LALR TABLE PHOTO LINK : https://ibb.co/vDH3V4v
+
+          
